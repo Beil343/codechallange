@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Code-challenge-1</title>
+</head>
+<body>
+    <h1><!--These are the links to the different parts of the code challenge-->
+        <a href="revenuecalculator.html">Salary-Calculator</a>
+        <a href="speeddetector.html">Speed-Detector</a>
+        <a href="gradecalculator.html">Grading-System</a>
+    </h1>
+    <form>
+		<label for="speed">Enter your car speed (in km/h): </label>
+		<input type="number" id="speed" name="speed" required>
+		<button type="submit">Get demerit points!</button>
+	</form>
+	<p id="result"></p>
+    <!--Beginning of JavaScript code-->
+    <script>
+    document.querySelector('form').addEventListener('submit', function(e) {
+			e.preventDefault(); // prevent form submission
+
+			// Get input value
+			let speed = parseInt(document.getElementById('speed').value);
+
+			// Calculating demerit points
+			let demeritPoints = 0;
+			if (speed <= 70) {
+				document.getElementById('result').textContent = "Ok";
+			} else {
+				demeritPoints = Math.floor((speed - 70) / 5);
+				if (demeritPoints > 12) {
+					document.getElementById('result').textContent = "License suspended";
+				} else {
+					document.getElementById('result').textContent = "Your points are, " + demeritPoints;
+				}
+			}
+		});
+
+    </script>
+    <!--Beginning of JavaScript code-->
+</body>
+</html>

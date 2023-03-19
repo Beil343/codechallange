@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code-challenge-1</title>
+</head>
+<body>
+    <h1><!--These are the links to the different parts of the code challenge-->
+        <a href="revenuecalculator.html">Salary-Calculator</a>
+        <a href="speeddetector.html">Speed-Detector</a>
+        <a href="gradecalculator.html">Grading-System</a>
+    </h1>
+    <input id="netSalary"/>
+    <input id="Total benefits "/>
+    <button onclick="basicSalary()">netSalary</button>
+    <h3 id="NetDisplay"></h3>
+    <script>
+        // Definition of  constants for basic salary, tax rate NHIF and NSSF rates
+    const BASIC_SALARY = 250000;
+    const TAX_RATE = 0.3;
+    const NHIF_RATE = 0.025;
+    const NSSF_RATE = 0.06;
+
+    // Getting user input for basic salary and benefits
+    const basicSalary = parseFloat(prompt("Enter your basic salary: "));
+    const benefits = parseFloat(prompt("Enter the total amount of benefits received: "));
+    ;
+    // Calculating the gross salary
+    const grossSalary = BASIC_SALARY + basicSalary + benefits;
+
+    // Calculating the  deductions
+    const taxDeduction = grossSalary * TAX_RATE;
+    const nhifDeduction = grossSalary * NHIF_RATE;
+    const nssfDeduction = grossSalary * NSSF_RATE;
+
+    // Calculating the  net salary
+    const netSalary = grossSalary - (taxDeduction + nhifDeduction + nssfDeduction);
+
+    // Displaying the results
+    console.log(`Your Gross Salary is: ${grossSalary.toFixed(2)}`);
+    console.log(`Your Tax deduction is: ${taxDeduction.toFixed(2)}`);
+    console.log(`Your NHIF deduction is: ${nhifDeduction.toFixed(2)}`);
+    console.log(`Your NSSF deduction is: ${nssfDeduction.toFixed(2)}`);
+    console.log(`Your Net salary is: ${netSalary.toFixed(2)}`);
+
+    NetDisplay.innerText=`Your salary is ${netSalary}`;
+    </script>
+    
+</body>
+</html>
